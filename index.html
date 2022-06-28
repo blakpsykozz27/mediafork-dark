@@ -16,14 +16,14 @@
                 <h1 class="logo-ttl">mediaFork</h1>
             </a>
             <nav class="nav">
-                <ul class="nav-list">
+                <ul id="main-nav" class="nav-list">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <button class="nav-burger"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                <button id="mobile-button" class="nav-burger"><i id="mobile-icon" class="fa fa-bars" aria-hidden="true"></i></button>
             </nav>
         </div>
     </header>
@@ -51,31 +51,47 @@
                     </p>
                 </div>
             </div>
-            <div id="services" class="section">
-                <ul class="cards-list">
+            <div id="services" class="section section-card">
+                <ul id="cards-list" class="cards-list">
                     <li>
-                        <div class="card">
+                        <a class="card" href="#">
                             <h3 class="card-ttl">Spread your ideas worldwide</h3>
+                            <p class="card-txt">
+                                The most challenging part of your plan is to spread your ideas and services all
+over the world. Give us your trust !
+                            </p>
                             <img class="card-icon" src="img/icon-web.png" alt="Web services">
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="card">
+                        <a class="card" href="#">
                             <h3 class="card-ttl">IT experts for you in no time</h3>
+                            <p class="card-txt">
+                                Our IT expert team is available 24 7 and will support you to solve your problem
+whenever it comes over.
+                            </p>
                             <img class="card-icon" src="img/icon-time.png" alt="Quick">
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="card">
+                        <a class="card" href="#">
                             <h3 class="card-ttl">Websites available on all devices</h3>
+                            <p class="card-txt">
+                                Designers and developers work together to bring you unique and highly valuable
+web interfaces declined for all the digital devices available on the market.
+                            </p>
                             <img class="card-icon" src="img/icon-phone.png" alt="Mobile expert">
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="card">
+                        <a class="card" href="#">
                             <h3 class="card-ttl">Creative team and fancy ideas</h3>
+                            <p class="card-txt">
+                                Web design trends are constantly changing. We are always looking for new ways
+to attract new customers to your business. Let the latest web trends inspire you.
+                            </p>
                             <img class="card-icon" src="img/icon-lightbulb.png" alt="Creative">
-                        </div>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -181,6 +197,6 @@
             <li><a class="footer-legal-link" href="#">Site map</a></li>
         </ul>
     </footer>
-<script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

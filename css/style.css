@@ -15,6 +15,8 @@
 
     /* Special colors */
     --transparent-white: rgba(255, 255, 255, 0.5);
+    --transparent-black: rgba(0, 0, 0, .5);
+    --transparent-black75: rgba(0, 0, 0, .75);
 
     /* Social colors */
     --facebook-color: #3b5998;
@@ -94,7 +96,7 @@ body.template-dark {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: var(--transparent-black);
     border-bottom: 1px solid var(--transparent-white);
     z-index: 100;
 }
@@ -132,47 +134,77 @@ body.template-dark {
     cursor: pointer;
 }
 
-.nav-list {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-}
-
 .nav-link {
-    display: inline-block;
-    position: relative;
     color: #fff;
-    font-size: 1.5rem;
-    transition: border var(--transition-duration) var(--transition-function);
 }
 
-.nav-link::after {
-    content: "";
-    display: block;
-    height: .25rem;
-    width: 0;
-    position: absolute;
-    left: 0;
-    bottom: -.5rem;
-    background-color: var(--primary-color);
-    transition: width .3s ease;
-}
+@media screen and (max-width: 767px) {
+    body.overflow {
+        overflow-y: hidden;
+    }
 
-.nav-link.active::after, .nav-link:hover::after  {
-    width: 100%;
-}
+    .nav-list {
+        position: absolute;
+        top: -100vh;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: var(--transparent-black75);
+        height: 100vh;
+        transition: top var(--transition-duration) var(--transition-function);
+    }
+    .nav-list.display {
+        top: calc(6rem + 1px);
+    }
 
-.nav-link.active {
-    color: var(--transparent-white);
+    .nav-item {
+        border-bottom: 1px solid var(--transparent-white);
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 2rem 0;
+        font-size: 2rem;
+    }
 }
 
 @media screen and (min-width: 768px) {
-    .nav-burger {
-        display: none; 
-    }
     .nav-list {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+    }
+    
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 1.5rem;
+        transition: border var(--transition-duration) var(--transition-function);
+    }
+    
+    .nav-link::after {
+        content: "";
+        display: block;
+        height: .25rem;
+        width: 0;
+        position: absolute;
+        left: 0;
+        bottom: -.5rem;
+        background-color: var(--primary-color);
+        transition: width .3s ease;
+    }
+    
+    .nav-link.active::after, .nav-link:hover::after  {
+        width: 100%;
+    }
+    
+    .nav-link.active {
+        color: var(--transparent-white);
+    }
+
+    .nav-burger {
+        display: none; 
     }
 }
 
@@ -318,11 +350,13 @@ body.template-dark {
 }
 
 .card {
+    display: block;
     padding: 2rem;
     background-color: var(--dark-grey);
     aspect-ratio: 2 / 3;
     position: relative;
     transition: background var(--transition-duration) var(--transition-function);
+    color: #fff;
 }
 
 .card-ttl {
@@ -331,6 +365,10 @@ body.template-dark {
     line-height: 1.2;
     word-break: break-word;
     transition: color var(--transition-duration) var(--transition-function);
+}
+
+.card-txt {
+    display: none;
 }
 
 .card-icon {
@@ -631,5 +669,71 @@ body.template-dark {
     
     .bg-instagram:hover {
         background-color: var(--instagram-color);
+    }
+}
+
+/* Modal */
+
+.section-card {
+    position: relative;
+}
+
+.modal {
+    position: absolute;
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+    padding: 3.5rem;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #000;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.modal-ttl {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+}
+
+.modal-txt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 2rem;
+}
+
+.modal-icon {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    opacity: .2;
+}
+
+@media screen and (max-width: 767px) {
+    .modal-icon {
+        width: calc(100% - 4rem);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .modal-icon {
+        height: calc(100% - 4rem);
     }
 }
